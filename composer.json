@@ -1,0 +1,20 @@
+{
+    "name": "root/vgym-app",
+    "authors": [
+        {
+            "name": "Ertil Gani",
+            "email": "ertilgani@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "^2.1",
+        "illuminate/database": "^5.2"
+    },
+    "autoload": {
+          "psr-4": {
+            "App\\" : "app"
+          }
+      }
+}
+

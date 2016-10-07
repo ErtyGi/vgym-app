@@ -1,0 +1,79 @@
+{% extends 'templates/app.twig' %}
+
+ {% block PlanSreen %}
+   <div class="panel panel-default">
+    <div class="panel-heading">Plan overview sreen</div>
+    <div class="panel-body">
+      <div id="listPlans" class="list-group">
+      {% for plan in plans %}
+           <a href="#" id="{{plan.id}}" class="list-group-item ">{{ plan.plan_name }} </a>   
+      {% endfor %}                 
+                      
+      </div>
+      <hr>
+      <div id='showRowPlan' class='list-group hidden'>
+        <form action="{{path_for('addPlan')}}" id='formAddPlan' method='post' >
+          <div class="form-group">
+            <label for="formPlanName">Plan name</label>
+            <input type="text" class="form-control" id="formPlanName" name="formPlanName" >
+          </div>
+           <div class="form-group">
+              <label for="formPlanDesc">Plan Description</label>
+              <textarea class="form-control" name="formPlanDesc" rows="3"></textarea>
+            </div>
+          <button type='submit' class='btn'>Save</button></form>
+      </div>
+      <button id="addRowPlan" type="button" class="btn btn-default">
+         Add new Plan
+      </button>
+    </div>
+  </div>
+ 
+  {% endblock %}
+ {% block PlanDetail %}
+	<div class="panel panel-default">
+        <div class="panel-heading">Plan detail screen:<b > Name Paln Here</b></div>
+        <div class="panel-body">
+          <p id="output"> This is the plan description. </p>
+    			<div class="row">
+    				<div class="col-sm-7">
+             <ul class="list-group">
+                <li class="list-group-item">Workout nr 1</li>
+              </ul>
+            </div>
+            <div class="col-sm-5">
+              <ul class="list-group">
+                <li class="list-group-item"><input type="checkbox"> Push-up</li>
+                <li class="list-group-item"><input type="checkbox"> Runing</li>
+                
+              </ul>
+            </div>
+    			</div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <button type="button" class="btn btn-default">
+               Add Workout
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-12 text-left">
+             <button type="button" class="btn btn-default ">
+               Delete Plan
+              </button>
+       </div>       
+     <div class="col-sm-12 text-right">         
+              <button type="button" class="btn btn-default ">
+               Save Workout
+              </button>
+    </div>
+ {% endblock %}
+
+
+{% block footerscripts %}
+  <script>
+          
+   </script>
+ {% endblock %}

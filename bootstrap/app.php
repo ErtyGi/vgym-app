@@ -8,13 +8,16 @@ $app = new \Slim\App([
 		'displayErrorDetails' => true,
 		'db' => [
 			'driver'    => 'mysql',
-		    'host'      => 'us-cdbr-iron-east-04.cleardb.net',
-		    'database'  => 'heroku_42a2cc393e4d67c',
-		   /* 'username'  => 'homestead', */
-		    'username'  => 'b65fcd3b6efbb4',
+	   		'host'      => 'localhost',  
+	/*    	'host'      => 'us-cdbr-iron-east-04.cleardb.net',  */
+		    'database'  => 'vgym_app',
+	/* 		'database'  => 'heroku_42a2cc393e4d67c', */
 		    
-		   /* 'password'  => 'secret', */
-		   'password'  => '84d86978',
+		    'username'  => 'homestead', 
+	/* 		'username'  => 'b65fcd3b6efbb4', */
+		    
+		 	'password'  => 'secret',
+	/* 		'password'  => '84d86978', */
 
 		    'charset'   => 'utf8',
 		    'collation' => 'utf8_unicode_ci',

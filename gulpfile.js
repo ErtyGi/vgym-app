@@ -25,14 +25,14 @@ gulp.task('scripts', function () {
 	 	
 	 ])
 	 .pipe(concat('app.js'))
-	 .pipe(minify({
+	/* .pipe(minify({
         ext:{
             src:'-debug.js',
             min:'.js'
         },
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
-    }))
+    })) */
 	 .pipe(gulp.dest('./public/js'));
 });
 

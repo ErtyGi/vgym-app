@@ -2,7 +2,7 @@
 
  {% block PlanSreen %}
    <div class="panel panel-default">
-    <div class="panel-heading">Plan overview sreen</div>
+    <div class="panel-heading"><h4>Plan overview sreen</h4></div>
     <div class="panel-body">
       <div id="listPlans" class="list-group">
       {% for plan in plans %}
@@ -31,14 +31,15 @@
  
   {% endblock %}
  {% block PlanDetail %}
+ <div class="row" id="test"></div>
 	<div class="panel panel-default">
-        <div class="panel-heading">Plan detail screen:<b > Name Paln Here</b></div>
+        <div class="panel-heading"><h4>Plan detail screen: <b id="outputNamePlan"></b></h4></div>
         <div class="panel-body">
-          <p id="output"> This is the plan description. </p>
+          <p id="outputDesc"></p>
     			<div class="row">
     				<div class="col-sm-7">
-             <ul class="list-group">
-                <li class="list-group-item">Workout nr 1</li>
+             <ul id="listWorkouts"  class="list-group">
+               
               </ul>
             </div>
             <div class="col-sm-5">
@@ -60,8 +61,8 @@
         </div>
     </div>
     <div class="col-sm-12 text-left">
-             <button type="button" class="btn btn-default ">
-               Delete Plan
+             <button id="deletePlan" type="button" class="btn btn-default" data-value="">
+               Delete Plan <b id="outputNamePlan"></b>
               </button>
        </div>       
      <div class="col-sm-12 text-right">         
@@ -69,11 +70,4 @@
                Save Workout
               </button>
     </div>
- {% endblock %}
-
-
-{% block footerscripts %}
-  <script>
-          
-   </script>
  {% endblock %}

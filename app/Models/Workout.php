@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Plan;
+use App\Models\Exercise;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -21,6 +22,12 @@ class Workout extends Model
 	public function plan()
 	{
 		return $this->belongsTo(Plan::class);
+	}
+
+
+		public function exercises()
+	{
+		return $this->belongsToMany(Exercise::class, 'day_id');
 	}
 
 }

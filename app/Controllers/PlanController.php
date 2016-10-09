@@ -4,19 +4,22 @@ namespace App\Controllers;
 
 use App\Models\Plan;
 use App\Models\Workout;
+use App\Models\Exercise;
 use Slim\Views\Twig as View;
-
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 
 class PlanController extends Controller
 {	
 	public function index( $request,  $response)
 	{		
-		$plans = Plan::get();	
-
+		$plans = Plan::with('workouts')->get();	
+		
 		return $this->view->render($response, 'home.twig',[
 
 				'plans' => $plans,
+
 
 			]);
 	}
@@ -37,20 +40,29 @@ class PlanController extends Controller
 		return $response->withRedirect($this->router->pathFor('home'));
 	}
 
-	public function getPlan($request,  $response, $id)
+	public function delete($request,  $response, $id)
 	{
-		$plan = Plan::where('id',$id)->get()->first();
-		echo  json_encode($plan);
+		$plan = Plan::destroy($id);	
+		
+		return $response->withRedirect($this->router->pathFor('home'));	
+
+
+	}
+
+	public function getPlan(Request $request, Response $response, $id)
+	{
+		
+		$plan = Plan::with('workouts')->find($id)->first();
+
+	
+		echo  json_encode([ 'plan'=>$plan ]);
+
 		
 	}
       
 
 
 
-	public function workouts()
-	{
-		return $this->hasMany(Workout::class);
-	}
 
 
 }
